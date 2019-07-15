@@ -1,0 +1,22 @@
+#http://localhost:8091/index.html
+server:
+  port: 8099
+zuul:
+  prefix: /api
+  routes:
+    multiplications:
+      path: /multiplications/**
+      url: http://localhost:8091/multiplications
+    results:
+      path: /results/**
+      url: http://localhost:8091/results
+    leaders:
+      path: /leaders/**
+      url: http://localhost:8081/leaders
+    stats:
+      path: /stats/**
+      url: http://localhost:8081/stats
+
+ribbon:
+  eureka:
+    enabled: false
